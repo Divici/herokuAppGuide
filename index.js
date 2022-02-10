@@ -2,7 +2,9 @@ const dotenv = require("dotenv").config()
 const express = require("express")
 const cors = require('cors')
 const app = express()
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 9000 //process.env.PORT is important for Heroku port use
+//must add script in package.json:  "start": "node index.js"
+//wherever you see require, you must npm install that
 
 app.use(cors())
 app.use(express.json())
