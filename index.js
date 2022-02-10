@@ -6,8 +6,12 @@ const port = process.env.PORT || 9000 //process.env.PORT is important for Heroku
 //must add script in package.json:  "start": "node index.js"
 //wherever you see require, you must npm install that
 
+const path = require("path")
+
 app.use(cors())
 app.use(express.json())
+//express.static tells what to load. dirname will be the directory heroku has setup
+app.use(express.static(path.join(__dirname, "client/build")))
 
 app.use("/api/", (_, res)=>{
     res.json({data:"API is accounted for"}) //api used will be put here
